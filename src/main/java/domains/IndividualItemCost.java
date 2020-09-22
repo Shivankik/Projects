@@ -1,6 +1,5 @@
 package domains;
 
-import service.FixedCost;
 
 public class IndividualItemCost {
 	private String id;

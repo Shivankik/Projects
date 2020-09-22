@@ -2,7 +2,6 @@ package domains;
 
 import java.util.List;
 
-import service.CostType;
 
 public class PromotionDetails {
 	List<PromotionalItem> promotionalItems;

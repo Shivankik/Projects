@@ -43,6 +43,9 @@ public class IndividualPromotion implements Promotion {
 				}
 			}
 			if (appliedPromotion != null) {
+				System.out.println("Applying Individual promotional for following items");
+				System.out.println(appliedPromotion.getUnits()+":"+appliedPromotion.getId());;
+				
 				this.updateRemaingItems(inputPromotionitems, appliedPromotion);
 				return promotionId;
 			}
@@ -63,11 +66,15 @@ public class IndividualPromotion implements Promotion {
 	public Double getCost(int promotionId) {
 		CostType costType = individualPromotions.get(promotionId).getCostType();
 		if (costType instanceof FixedCost) {
-			return individualPromotions.get(promotionId).getCostType().getCost();
+			Double cost=individualPromotions.get(promotionId).getCostType().getCost();
+			System.out.println("Applying Fixed cost: "+cost);
+			return cost;
 		}
 		if (costType instanceof PercentageCost) {
-			return individualPromotions.get(promotionId).getPromotionalItems().get(0).getUnits()
+			Double cost= individualPromotions.get(promotionId).getPromotionalItems().get(0).getUnits()
 					* individualPromotions.get(promotionId).getCostType().getCost();
+			System.out.println("Applying Percentage cost: "+cost);
+			return cost;
 		}
 		return null;
 

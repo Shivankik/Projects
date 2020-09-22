@@ -42,6 +42,8 @@ public class ComboPromotion implements Promotion {
 				}
 			}
 			if (foundList.size() == details.getPromotionalItems().size()) {
+				System.out.println("Applying ComboPromotion for following items");
+				details.getPromotionalItems().stream().forEach(promotionalItem->System.out.println(promotionalItem.getUnits()+":"+promotionalItem.getId()));;
 				this.updateRemaingItems(inputPromotionitems, details.getPromotionalItems());
 				return entry.getKey();
 			}
@@ -64,7 +66,9 @@ public class ComboPromotion implements Promotion {
 
 	
 	public Double getCost(int promotionId) {
-		return comboPromotions.get(promotionId).getCostType().getCost();
+		Double cost=comboPromotions.get(promotionId).getCostType().getCost();
+		System.out.println("Applying cost: "+cost);
+		return cost;
 
 	}
 
